@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+group = 'tech.realcpf'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    implementation 'io.netty:netty-handler:4.1.89.Final'
+   // just linux x86_64 now
+    implementation 'io.netty:netty-transport-native-epoll:4.1.89.Final:linux-x86_64'
+
+    // https://mvnrepository.com/artifact/io.netty/netty-codec-http
+    implementation("io.netty:netty-codec-http:4.1.89.Final")
+// https://mvnrepository.com/artifact/io.netty/netty-codec-redis
+    implementation("io.netty:netty-codec-redis:4.1.89.Final")
+
+
+
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
