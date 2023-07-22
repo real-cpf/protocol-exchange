@@ -7,11 +7,15 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.ByteToMessageDecoder;
+import io.netty.handler.codec.CodecException;
+import io.netty.handler.codec.MessageToMessageDecoder;
 import io.netty.handler.codec.http.DefaultFullHttpResponse;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import io.netty.handler.codec.http.HttpVersion;
+import io.netty.handler.codec.redis.*;
 import io.netty.util.ReferenceCountUtil;
 
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -31,14 +35,27 @@ public class RedisClientChannel {
                 .handler(new ChannelInitializer<SocketChannel>() {
                     @Override
                     protected void initChannel(SocketChannel ch) throws Exception {
-                        ch.pipeline().addLast(new ByteToMessageDecoder() {
+
+                        ChannelPipeline pipeline = ch.pipeline();
+                        pipeline.addLast(new RedisDecoder());
+                        pipeline.addLast(new RedisBulkStringAggregator());
+                        pipeline.addLast(new RedisArrayAggregator());
+                        pipeline.addLast(new MessageToMessageDecoder<RedisMessage>() {
                             @Override
-                            protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) throws Exception {
-                                in.readerIndex(in.readableBytes());
-                                ReferenceCountUtil.retain(in);
-                                out.add(in);
+                            protected void decode(ChannelHandlerContext ctx, RedisMessage msg, List<Object> out) throws Exception {
+                                if (msg instanceof SimpleStringRedisMessage) {
+                                    SimpleStringRedisMessage simpleStringRedisMessage = (SimpleStringRedisMessage) msg;
+                                    ByteBuf buf = ctx.alloc().buffer();
+                                    buf.writeCharSequence(simpleStringRedisMessage.content(), StandardCharsets.UTF_8);
+                                    out.add(buf);
+                                }else if(msg instanceof FullBulkStringRedisMessage) {
+                                    FullBulkStringRedisMessage message = (FullBulkStringRedisMessage)msg;
+                                    out.add(message.content());
+                                }
+                                ReferenceCountUtil.retain(msg);
                             }
                         });
+
                         ch.pipeline().addLast(new SimpleChannelInboundHandler<ByteBuf>() {
 
                             @Override
