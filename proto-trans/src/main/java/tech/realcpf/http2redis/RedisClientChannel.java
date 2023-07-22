@@ -67,7 +67,7 @@ public class RedisClientChannel {
                                 if (c != null) {
                                     c.writeAndFlush(response).addListener(ChannelFutureListener.CLOSE);
                                 }
-                                ctx.fireChannelRead(ReferenceCountUtil.retain(response,1));
+                                ctx.fireChannelRead(ReferenceCountUtil.retain(msg,1));
                             }
                         });
                     }

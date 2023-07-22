@@ -4,27 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c7ee6252-2df2-4ec8-a06e-a0a45e169bc8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tech/realcpf/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tech/realcpf/core/ExchangeHandlers.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tech/realcpf/http2redis/ExchangeHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tech/realcpf/http2redis/Http2Redis.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tech/realcpf/http2redis/RedisClientChannel.java" afterDir="false" />
+    <list default="true" id="c7ee6252-2df2-4ec8-a06e-a0a45e169bc8" name="Changes" comment="add redis response message decoder">
+      <change afterPath="$PROJECT_DIR$/src/main/java/tech/realcpf/redis2http/ExchangeHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tech/realcpf/redis2http/HttpClientChannel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tech/realcpf/redis2http/Redis2Http.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/realcpf/http2redis/RedisClientChannel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/realcpf/http2redis/RedisClientChannel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,13 +74,13 @@
     "onboarding.tips.debug.path": "/home/realcpf/Documents/projects/prop-translate/proto-trans/src/main/java/tech/realcpf/Main.java"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.tech.realcpf.httptranredis.Http2Redis">
-    <configuration name="DemoClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="tech.realcpf.demo.DemoClient" />
+  <component name="RunManager" selected="Application.Test1">
+    <configuration name="HttpClientChannel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tech.realcpf.redis2http.HttpClientChannel" />
       <module name="proto-trans.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="tech.realcpf.demo.*" />
+          <option name="PATTERN" value="tech.realcpf.redis2http.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -103,12 +88,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Http2Redis" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="tech.realcpf.http2redis.Http2Redis" />
+    <configuration name="Redis2Http (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tech.realcpf.redis2http.Redis2Http" />
       <module name="proto-trans.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="tech.realcpf.http2redis.*" />
+          <option name="PATTERN" value="tech.realcpf.redis2http.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -116,12 +101,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Http2RedisDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="tech.realcpf.demo.Http2RedisDemo" />
+    <configuration name="Redis2Http" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tech.realcpf.redis2http.Redis2Http" />
       <module name="proto-trans.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="tech.realcpf.demo.*" />
+          <option name="PATTERN" value="tech.realcpf.redis2http.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -129,15 +114,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="tech.realcpf.httptranredis.Http2Redis" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="tech.realcpf.http2redis.Http2Redis" />
-      <module name="proto-trans.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tech.realcpf.http2redis.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+    <configuration name="Test1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test1" />
+      <module name="proto-trans.test" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -165,19 +144,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Application.tech.realcpf.httptranredis.Http2Redis" />
-      <item itemvalue="Application.Http2RedisDemo" />
-      <item itemvalue="Application.DemoClient" />
-      <item itemvalue="Application.Http2Redis" />
+      <item itemvalue="Application.HttpClientChannel" />
+      <item itemvalue="Application.Redis2Http" />
+      <item itemvalue="Application.Redis2Http (1)" />
+      <item itemvalue="Application.Test1" />
       <item itemvalue="Gradle.proto-trans [clean]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test1" />
+        <item itemvalue="Application.HttpClientChannel" />
+        <item itemvalue="Application.Redis2Http (1)" />
+        <item itemvalue="Application.Redis2Http" />
         <item itemvalue="Gradle.proto-trans [clean]" />
-        <item itemvalue="Application.tech.realcpf.httptranredis.Http2Redis" />
-        <item itemvalue="Application.tech.realcpf.httptranredis.Http2Redis" />
-        <item itemvalue="Application.Http2RedisDemo" />
-        <item itemvalue="Application.DemoClient" />
       </list>
     </recent_temporary>
   </component>
@@ -190,7 +169,20 @@
       <option name="presentableId" value="Default" />
       <updated>1687394509945</updated>
     </task>
+    <task id="LOCAL-00001" summary="add redis response message decoder">
+      <option name="closed" value="true" />
+      <created>1690011616809</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1690011616809</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add redis response message decoder" />
+    <option name="LAST_COMMIT_MESSAGE" value="add redis response message decoder" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -214,6 +206,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/tech/realcpf/demo/Http2RedisDemo.java</url>
           <line>42</line>
           <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/tech/realcpf/redis2http/HttpClientChannel.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="42" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
